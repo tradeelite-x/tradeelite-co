@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> | TradeElite | </title>
+    <style>
+        :root {
+            --bg-body: #0a0a1f;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --accent-green: #00ff9d;
+            --accent-dark: #00cc7a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-warning: #ffaa00;
+            --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
 
+        body { 
+            font-family: var(--font-main);
+            text-align: center; 
+            background: var(--bg-body); 
+            color: var(--text-primary); 
+            margin: 0; 
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 { 
+            color: var(--text-primary); 
+            font-size: 32px; 
+            margin-bottom: 12px; 
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+        }
+
+        .btc-box {
+            background: var(--bg-card);
+            border: 2px solid var(--accent-green);
+            border-radius: 16px;
+            padding: 30px 20px;
+            margin: 30px auto;
+            max-width: 450px;
+            word-break: break-all;
+            font-size: 18px;
+            line-height: 1.6;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .btc-box:hover {
+            background: var(--bg-card-hover);
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .label {
+            display: block;
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .address {
+            color: var(--accent-green);
+            font-family: var(--font-mono);
+            font-size: 16px;
+            background: rgba(0,0,0,0.2);
+            padding: 12px;
+            border-radius: 8px;
+            display: block;
+            margin-top: 10px;
+            word-break: break-all;
+        }
+
+        .note {
+            font-size: 14px; 
+            color: var(--text-warning);
+            margin-bottom: 40px;
+            background: rgba(255, 170, 0, 0.1);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        button { 
+            padding: 18px 50px; 
+            font-size: 20px; 
+            font-weight: 700;
+            border: none; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            margin-top: 20px; 
+            width: 100%;
+            max-width: 320px;
+            font-family: var(--font-main);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .done-btn { 
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-dark));
+            color: #000;
+            box-shadow: 0 4px 15px rgba(0, 255, 157, 0.3);
+        }
+
+        .done-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 255, 157, 0.5);
+        }
+
+        .done-btn:disabled {
+            background: #333;
+            color: #666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .brand {
+            margin-bottom: 20px;
+            font-size: 14px;
+          
+color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="brand">TradeElite</div>
+
+    <h1>Complete Your Claim</h1>
+    <p class="subtitle">To finalize  <strong>$ELITE</strong> please send the required cryptocurrency.</p>
+    
+    <div class="btc-box">
+        <span class="label">Send BTC to this address</span>
+        <span class="address"> bc1q8jzvspqu3h4zuvwejlqruqe2r0y386ldj4cvrj</span>
+    </div>
+
+    <p class="note">
+        ⚠️ Once payment is received, your tokens will be automatically sent to your wallet.
+    </p>
+
+    <button class="done-btn" id="pay-btn" onclick="goToDashboard()">
+        Done - I've Paid
+    </button>
+
+    <script>
+        function goToDashboard() {
+            const btn = document.getElementById('pay-btn');
+            
+            // 1. Immediate visual feedback
+            btn.textContent = "Verifying...";
+            btn.disabled = true;
+            btn.style.background = "#333";
+            btn.style.color = "#666";
+
+            // 2. Immediate redirection (no delay)
+            window.location.href = "dashboard.html";
+            
+            // Optional: Fallback if the page doesn't load within 2 seconds
+            setTimeout(() => {
+                if (!document.hidden) {
+                    // If the user is still here after 2 seconds, alert them
+                    alert("You have been redirected. If the page is blank, check your browser console for errors.");
+                }
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
