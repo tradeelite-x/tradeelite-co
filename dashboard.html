@@ -574,7 +574,7 @@ asset-price { color: #777; font-size: 11px; margin-top: 4px; }
     <div class="demo-label">Portfolio</div>
 
     <div class="balance-label">Current Balance</div>
-    <div class="balance" id="balance">$853.10</div>
+    <div class="balance" id="balance">$100.01</div>
 
     <div class="change-row">
         <div class="change" id="dailyChange">+6.4% today</div>
@@ -602,7 +602,7 @@ asset-price { color: #777; font-size: 11px; margin-top: 4px; }
     <div class="statistics" id="statsSection">
         <div class="stat-card">
             <div class="stat-label">Portfolio Balance</div>
-            <div class="stat-value" id="statBalance">$853.10</div>
+            <div class="stat-value" id="statBalance">$100.01</div>
         </div>
         <div class="stat-card">
             <div class="stat-label">Today's Change</div>
@@ -738,7 +738,7 @@ function copyAddress(id, btn) {
 }
 
 /* REALISTIC SLOW TWO-WAY TICKER ENGINE */
-let currentAmount = 853.10;
+let currentAmount = 100.00;
 let balanceVisible = true;
 const balanceEl = document.getElementById("balance");
 const statBalanceEl = document.getElementById("statBalance");
@@ -761,8 +761,8 @@ function updateBalance() {
     currentAmount += change;
 
     // Prevent amount from dropping below baseline
-    if (currentAmount < 853.10) {
-        currentAmount = 853.10;
+    if (currentAmount < 95.75) {
+        currentAmount = 100.01;
     }
 
     if (balanceVisible) {
