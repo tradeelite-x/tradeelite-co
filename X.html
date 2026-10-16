@@ -152,7 +152,7 @@
 
         .option:hover {
             transform: translateY(-2px);
-border-color: rgba(0, 255, 157, 0.5);
+            border-color: rgba(0, 255, 157, 0.5);
             background: #19192d;
             box-shadow: 0 8px 25px rgba(0, 255, 157, 0.07);
         }
@@ -309,8 +309,7 @@ border-color: rgba(0, 255, 157, 0.5);
                     <div class="wallet-name">Trust Wallet</div>
                     <div class="check">✓</div>
                 </div>
-              
-      <div class="option" onclick="selectWallet(this)">
+                <div class="option" onclick="selectWallet(this)">
                     <div class="wallet-icon">🔵</div>
                     <div class="wallet-name">Coinbase Wallet</div>
                     <div class="check">✓</div>
@@ -364,7 +363,7 @@ border-color: rgba(0, 255, 157, 0.5);
 
             if (!selectedWallet) return;
 
-            window.location.href = "payment.html";
+            window.location.href = "dashboard.html";
         }
 
     </script>
